@@ -1,6 +1,6 @@
-import {countChar} from './utils';
+import {countChar} from '../utils';
 
-export enum Color {
+export enum CharState {
   BLACK = 0,
   GREEN = 1,
   YELLOW = 2,
@@ -8,7 +8,7 @@ export enum Color {
 
 export interface DiffInfo {
   char: string
-  color: Color
+  state: CharState
 }
 
 export type WordDiffInfo = DiffInfo[]
@@ -34,13 +34,15 @@ export class Ruler {
       const answerChar = answer[i];
       const diffInfo = {
         char: guessChar,
-        color: Color.BLACK,
+        state: CharState.BLACK,
       };
       if (answerCount[guessChar]) {
-        diffInfo.color = guessChar === answerChar ? Color.GREEN : Color.YELLOW,
+        diffInfo.state = guessChar === answerChar ?
+          CharState.GREEN :
+          CharState.YELLOW,
         answerCount[guessChar] -= 1;
       }
-      isFullMatch = isFullMatch && (diffInfo.color === Color.GREEN);
+      isFullMatch = isFullMatch && (diffInfo.state === CharState.GREEN);
       rs.push(diffInfo);
     }
     return [rs, isFullMatch];

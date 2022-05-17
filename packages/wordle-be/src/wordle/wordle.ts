@@ -1,5 +1,5 @@
 import {Ruler, WordDiffInfo} from './ruler';
-import {random} from './utils';
+import {random} from '../utils';
 
 enum GameMessage {
   GAME_OVER = 'GAME_OVER',
@@ -15,7 +15,7 @@ const InfoColor = [
 
 export const renderWordInfo = (info: WordDiffInfo) => {
   const res:string[] = [];
-  for (const {char, color} of info) {
+  for (const {char, state: color} of info) {
     res.push(InfoColor[color]);
     res.push(char);
   }
@@ -68,11 +68,15 @@ export class Wordle {
     return this.words[r];
   }
 
+  isValid(word: string) {
+    return Ruler.checkValidWord(this.wordsSet, word);
+  }
+
   tryGuess(guess: string) {
     if (!this.gameStart || this.answer === null) {
       throw new Error(GameMessage.GAME_INVALID);
     }
-    if (!Ruler.checkValidWord(this.wordsSet, guess)) {
+    if (!this.isValid(guess)) {
       throw new Error(GameMessage.INVALID_WORD);
     }
     const [guessInfo, isFullMatch] = Ruler.wordDiff(this.answer, guess);

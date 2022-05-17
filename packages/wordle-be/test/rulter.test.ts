@@ -1,4 +1,4 @@
-import {Ruler} from '@/ruler';
+import {Ruler} from '@/wordle/ruler';
 import words from '~/words.json';
 
 describe('Wordle Rule', () => {
