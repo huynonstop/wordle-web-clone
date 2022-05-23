@@ -1,5 +1,4 @@
 import {RequestHandler} from 'express';
-import {BadRequest} from './error/customError';
 import {getRandomWord, check, CheckDTO, isWordValid} from './wordle/index';
 export const getWord: RequestHandler = (req, res) => {
   const newWord = getRandomWord();
@@ -8,16 +7,25 @@ export const getWord: RequestHandler = (req, res) => {
   });
 };
 
-export const checkAnswer: RequestHandler = (req, res, next) => {
+export const checkAnswer: RequestHandler = (req, res) => {
   const {word, answer}: CheckDTO = req.query;
   if (!word || !isWordValid(word)) {
-    return next(new BadRequest('INVALID_WORD'));
+    return res.json({
+      word,
+      isValid: false,
+    });
   }
   if (!answer) {
-    return next(new BadRequest('INVALID_ANSWER'));
+    return res.json({
+      word,
+      isValid: true,
+    });
   }
   const [diffInfo, isFullMatch] = check(answer, word);
   res.json({
-    diffInfo, isFullMatch,
+    word,
+    isValid: true,
+    diffInfo,
+    isFullMatch,
   });
 };

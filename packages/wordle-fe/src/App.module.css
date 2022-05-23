@@ -1,14 +1,30 @@
 .app {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .app-header {
-  text-align: center;
-  font-size: 1.2rem;
-  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   border-bottom: 1px solid #eee;
+  height: 3.5rem;
+}
+
+.app-title {
   color: #333;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.htp-button {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  bottom: 4rem;
+  right: 4rem;
+  cursor: pointer;
 }

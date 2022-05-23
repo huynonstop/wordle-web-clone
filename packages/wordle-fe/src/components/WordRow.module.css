@@ -1,0 +1,120 @@
+.row {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.row > .cell {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid #bbb;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2.5em;
+}
+
+.row.current > .filled.cell {
+  color: #101010;
+  border-color: #101010;
+  animation: type 0.25s ease forwards;
+}
+
+.row.current.invalid > .filled.cell {
+  animation: error 0.25s ease forwards;
+}
+
+.row > .gray {
+  --background: #a1a1a1;
+  --border-color: #a1a1a1;
+  animation: flip 0.5s ease forwards;
+}
+.row > .green {
+  --background: #5ac85a;
+  --border-color: #5ac85a;
+  animation: flip 0.5s ease forwards;
+}
+.row > .yellow {
+  --background: #e2cc68;
+  --border-color: #e2cc68;
+  animation: flip 0.5s ease forwards;
+}
+
+.row > div:nth-child(2) {
+  animation-delay: calc(0.2s * 1);
+}
+.row > div:nth-child(3) {
+  animation-delay: calc(0.2s * 2);
+}
+.row > div:nth-child(4) {
+  animation-delay: calc(0.2s * 3);
+}
+.row > div:nth-child(5) {
+  animation-delay: calc(0.2s * 4);
+}
+
+@keyframes type {
+  0% {
+    transform: scale(1);
+    border-width: 1px;
+  }
+
+  50% {
+    transform: scale(1.1);
+    border-width: 0.25rem;
+  }
+
+  100% {
+    transform: scale(1);
+    border-width: 1px;
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+    background: #fff;
+    border-color: #333;
+  }
+  45% {
+    transform: rotateX(90deg);
+    background: #fff;
+    border-color: #333;
+  }
+  55% {
+    transform: rotateX(90deg);
+    background: var(--background);
+    border-color: var(--border-color);
+  }
+  100% {
+    transform: rotateX(0deg);
+    background: var(--background);
+    border-color: var(--border-color);
+    color: #fff;
+  }
+}
+
+@keyframes error {
+  0% {
+    transform: translateX(0);
+  }
+  35% {
+    transform: translateX(-0.1rem);
+  }
+  45% {
+    transform: translateX(0.1rem);
+  }
+  55% {
+    transform: translateX(-0.1rem);
+  }
+  65% {
+    transform: translateX(0.1rem);
+  }
+  100% {
+    transform: translateX(0);
+    color: #fd3f3f;
+    border-color: #fd3f3f;
+  }
+}
