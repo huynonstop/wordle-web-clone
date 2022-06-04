@@ -34,7 +34,7 @@ function App() {
   return (
     <div className={app}>
       <header className={appHeader}>
-        <div className={appTitle}>(Hello) Wordle {answer}</div>
+        <div className={appTitle}>(Hello) Wordle</div>
       </header>
       {isLoading && <Loader />}
       {error && (
