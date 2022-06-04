@@ -1,6 +1,7 @@
 .app {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   gap: 1rem;
 }
 
@@ -27,4 +28,19 @@
   bottom: 4rem;
   right: 4rem;
   cursor: pointer;
+}
+
+.rc-button {
+  border: 0.25rem solid #333;
+  padding: 1rem 3rem;
+  outline: none;
+  background: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.rc-button:hover {
+  background: #ccc;
+  border: 0.25rem solid #858585;
 }

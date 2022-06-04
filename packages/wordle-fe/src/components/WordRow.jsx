@@ -16,7 +16,7 @@ const WordRow = ({ info, guess, isValid }) => {
         {info.map(({ char, state }, idx) => {
           return (
             <div
-              className={`${cell} ${STATE_COLOR[state]}`}
+              className={`${cell} ${state && STATE_COLOR[state]}`}
               key={`${char}-${idx}`}
             >
               {char}
