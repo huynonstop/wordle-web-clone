@@ -1,4 +1,8 @@
-export const WORDLE_API = import.meta.env.VITE_WORDLE_API;
+export const WORDLE_API =
+  import.meta.env.VITE_WORDLE_API ||
+  import.meta.env.PROD.VITE_WORDLE_API ||
+  process.env.VITE_WORDLE_API;
+
 export const GUESS_COUNT = 6;
 export const LETTER_LIST = [
   { key: 'a' },
