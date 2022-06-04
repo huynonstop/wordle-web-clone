@@ -1,3 +1,4 @@
+/* eslint-disable*/
 const tsConfigPaths = require('tsconfig-paths');
 
 const paths = {
