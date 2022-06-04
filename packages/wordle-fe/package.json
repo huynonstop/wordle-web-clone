@@ -1,7 +1,7 @@
 {
   "name": "wordle-fe",
   "engines": {
-    "node": ">=17.1.0 32"
+    "node": ">=17.1.0"
   },
   "private": true,
   "version": "0.0.0",

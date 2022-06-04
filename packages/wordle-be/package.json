@@ -2,7 +2,7 @@
   "name": "wordle-engine",
   "version": "1.0.0",
   "engines": {
-    "node": ">=17.1.0 32"
+    "node": ">=17.1.0"
   },
   "main": "index.js",
   "scripts": {
