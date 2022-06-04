@@ -1,7 +1,9 @@
 {
   "name": "wordle-engine",
   "version": "1.0.0",
-  "description": "",
+  "engines": {
+    "node": ">=17.1.0 32"
+  },
   "main": "index.js",
   "scripts": {
     "start": "ts-node -r tsconfig-paths/register ./src/index.ts",
