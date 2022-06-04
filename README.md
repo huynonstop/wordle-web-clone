@@ -4,9 +4,13 @@
 
 ReactJS
 
+Demo: <https://wordle-fe.netlify.app/>
+
 ## Backend
 
 ExpressJS
+
+API: <https://wordle-be-api.herokuapp.com/>
 
 ## How to play
 
